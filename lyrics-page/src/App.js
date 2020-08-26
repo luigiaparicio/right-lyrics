@@ -108,25 +108,27 @@ class App extends React.Component {
         var errorSection = null;
         var mainSection = null;
 
-        if (this.state.selectedSong) {
-            mainSection = (
-                <div>
-                    <SongItem onDeselectSong={this.onDeselectSong}
+        if (this.state.authenticated) {
+            if (this.state.selectedSong) {
+                mainSection = (
+                    <div>
+                        <SongItem onDeselectSong={this.onDeselectSong}
+                            onSelectSong={this.onSelectSong}
+                            authenticated={this.state.authenticated}
+                            key={this.state.selectedSong.id}
+                            song={this.state.selectedSong} />
+                        { this.state.selectedSong.youtubeLink && <SongVideo song={this.state.selectedSong} /> }
+                        <SongLyrics lyrics={this.state.selectedSong.lyrics} />
+                    </div>
+                );
+            } else {
+                mainSection = (
+                    <SongList authenticated={this.state.authenticated}
                         onSelectSong={this.onSelectSong}
-                        authenticated={this.state.authenticated}
-                        key={this.state.selectedSong.id}
-                        song={this.state.selectedSong} />
-                    { this.state.selectedSong.youtubeLink && <SongVideo song={this.state.selectedSong} /> }
-                    <SongLyrics lyrics={this.state.selectedSong.lyrics} />
-                </div>
-            );
-        } else {
-            mainSection = (
-                <SongList authenticated={this.state.authenticated}
-                    onSelectSong={this.onSelectSong}
-                    songs={this.state.songs} />
-            );
-        }
+                        songs={this.state.songs} />
+                );
+            }
+        }     
 
         if (this.state.error) {
             errorSection = (
