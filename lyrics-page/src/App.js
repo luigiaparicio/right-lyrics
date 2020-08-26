@@ -37,7 +37,9 @@ class App extends React.Component {
             console.log("Error");
         });
 
-        this.getSongs();
+        if (this.state.authenticated) {
+            this.getSongs();
+        }
     }
 
     onSearch = (event) => {
