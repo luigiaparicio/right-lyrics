@@ -84,7 +84,7 @@ class App extends React.Component {
             query = "?filter=" + filter;
         }
 
-        fetch(this.songsEndpoint + query)
+        fetch(this.songsEndpoint + query, { headers: { "Authorization": "Bearer " + this.state.keycloak.token } })
             .then(songs => songs.json())
             .then(
                 (songs) => {

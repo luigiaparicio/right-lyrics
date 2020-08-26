@@ -27,7 +27,7 @@ class NavBar extends React.Component {
                 <Col className="col-12 col-sm-12 col-lg-4 center">
                     { loginSection }                    
                     { userSection }                    
-                    <SearchBar onSearch={this.props.onSearch}></SearchBar>
+                    { this.props.authenticated && <SearchBar onSearch={this.props.onSearch}></SearchBar> }                                 
                 </Col>
             </Row>
         );
