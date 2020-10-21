@@ -4,7 +4,7 @@ metadata:
   name: songs  
 spec:
   rules:
-    - host: right.lyrics
+    - host: right-lyrics.apps.cluster-3fa6.sandbox31.opentlc.com
       http:
         paths:
           - path: /api/songs
