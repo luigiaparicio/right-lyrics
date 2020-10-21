@@ -8,3 +8,5 @@ secretGenerator:
       - user=right-lyrics
       - password=right-lyrics
       - database=right-lyrics
+resources:
+- right-lyrics-namespace.yaml
