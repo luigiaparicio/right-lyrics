@@ -10,3 +10,4 @@ secretGenerator:
       - database=right-lyrics
 resources:
   - right-lyrics-namespace.yaml
+  - songs-ingress.yaml
