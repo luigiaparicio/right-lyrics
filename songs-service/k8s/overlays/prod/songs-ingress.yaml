@@ -1,9 +1,12 @@
-apiVersion: v1
+apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   name: right-lyrics
 spec:
+  host: ""
   path: "/api/songs"
   to:
     kind: Service
     name: songs-service
+  port:
+    targetPort: 8080
